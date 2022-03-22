@@ -15,6 +15,7 @@ export const WeatherSummary: FC<WeatherSummaryProps> = ({location}) => {
   useEffect(() => {
     (async function () {
       if (location) {
+        console.log(location)
         const [weather, forecast] = await Promise.all([
           readWeather(location.id),
           readForecast(location.id)
@@ -28,20 +29,23 @@ export const WeatherSummary: FC<WeatherSummaryProps> = ({location}) => {
   if (!location || !weather || !forecast) return null;
 
   return (
-    <div>
-      <hr/>
-      <h2>{location.name}</h2>
-      <WeatherEntry weather={weather}/>
-
-      <h2>Forecast</h2>
+    <div className="">
+      <div className="text-center bg-dark text-white py-5 ">
+        <h2>{location.name}</h2>
+        <WeatherEntry weather={weather}/>
+      </div>
+      <hr />
       <div>
-        <ol style={({whiteSpace: 'nowrap'})}>
-          {forecast.map(timePoint =>
-            <li key={timePoint.dt}>
-              <WeatherEntry weather={timePoint}/>
-            </li>
-          )}
-        </ol>
+        <h2 className="text-center">Forecast</h2>
+        <div>
+          <ol style={({whiteSpace: 'nowrap'})}>
+            {forecast.map(timePoint =>
+              <li key={timePoint.dt}>
+                <WeatherEntry weather={timePoint}/>
+              </li>
+            )}
+          </ol>
+        </div>
       </div>
     </div>
   );

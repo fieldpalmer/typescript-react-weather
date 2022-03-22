@@ -9,21 +9,30 @@ interface LocationTableProps {
 
 export const LocationTable: FC<LocationTableProps> = ({locations, onSelect, current}) =>
   <div>
-    <h2>Locations</h2>
-    <table className="table table-hover">
-      <thead>
-      <tr>
-        <th>Name</th>
-      </tr>
-      </thead>
-      <tbody>
-      {locations.map(location =>
-        <tr key={location.id}
-            className={current?.id === location.id ? 'table-primary' : ''}
-            onClick={() => onSelect(location)}>
-          <td>{location.name}</td>
-        </tr>
-      )}
-      </tbody>
-    </table>
-  </div>;
+    {
+      locations.length === 0 ? 
+      <div className="">
+        {/* <p className="fs-3 mt-3">Locations</p> */}
+        <p className="fst-italic small">Your searched locales appear here</p>
+      </div> :
+      <div className="locationsTable mt-3">
+        {/* <p className="fs-3 mt-3">Locations</p> */}
+        <table className="table table-hover">
+          <thead>
+          <tr>
+            <th className="fs-3 mt-3">Locations</th>
+          </tr>
+          </thead>
+          <tbody>
+            {locations.map(location =>
+              <tr key={location.id}
+                  className={current?.id === location.id ? 'table-primary' : ''}
+                  onClick={() => onSelect(location)}>
+                <td>{location.name}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>

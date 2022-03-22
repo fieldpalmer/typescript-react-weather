@@ -32,16 +32,17 @@ const App: FC = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Weather App</h1>
+    <div className="container-fluid">
+      <p className='fs-1'>Temps of the World Today</p>
 
       <LocationSearch onSearch={addLocation}/>
       <ErrorAlert message={error}/>
       <WarningAlert message={warning}/>
-      <LocationTable locations={locations}
-                     current={currentLocation}
-                     onSelect={location => setCurrentLocation(location)}/>
-
+      <LocationTable 
+        locations={locations}
+        current={currentLocation}
+        onSelect={location => setCurrentLocation(location)}
+      />
       <WeatherSummary location={currentLocation}/>
     </div>
   );

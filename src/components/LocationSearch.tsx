@@ -14,15 +14,13 @@ export const LocationSearch: FC<LocationSearchProps> = ({onSearch}) => {
   };
 
   return (
-    <div>
-      <label>
-        Add Location
-        <input className="ml-1 mr-1" type="text" value={locationSearch}
-               onChange={e => setLocationSearch(e.target.value)}/>
-      </label>
-      <button className="btn btn-primary"
-              onClick={addLocation} disabled={disableSearch}>Search
-      </button>
+    <div className="input-group">
+      <input className="form-control" type="text" onChange={e => setLocationSearch(e.target.value)} value={locationSearch} placeholder="enter location" aria-label="form-input-location-search" />
+      <span className="input-group-text m-0 p-0 " id="basic-addon2">
+        <button className="btn btn-success rounded-0"
+          onClick={addLocation} disabled={disableSearch}>Search
+        </button>
+      </span>
     </div>
   );
 }
