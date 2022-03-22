@@ -9,7 +9,6 @@ interface WeatherEntryProps {
 
 export const WeatherEntry: FC<WeatherEntryProps> = ({weather}) =>
   <div>
-    {/* {console.log(weather.main)} */}
     <div>{convertUnixTimeToDate(weather.dt).toLocaleTimeString()}</div>
     <div>
       <strong>{Math.round(weather.main.temp * 1.8 + 32)}°F</strong>

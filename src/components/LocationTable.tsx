@@ -12,16 +12,16 @@ export const LocationTable: FC<LocationTableProps> = ({locations, onSelect, curr
     {
       locations.length === 0 ? 
       <div className="">
-        {/* <p className="fs-3 mt-3">Locations</p> */}
+        <p className="fs-3 mt-3">Locations</p>
         <p className="fst-italic small">Your searched locales appear here</p>
       </div> :
       <div className="locationsTable mt-3">
         {/* <p className="fs-3 mt-3">Locations</p> */}
-        <table className="table table-hover">
+        <table className="table table-success table-striped">
           <thead>
-          <tr>
-            <th className="fs-3 mt-3">Locations</th>
-          </tr>
+            <tr>
+              <th className="fs-3 mt-3">Locations</th>
+            </tr>
           </thead>
           <tbody>
             {locations.map(location =>
